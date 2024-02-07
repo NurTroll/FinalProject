@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>sorting_module package &#8212; документация Final project. Sorting 0.0.1</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="main module" href="main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sorting-module-package">
+<h1>sorting_module package<a class="headerlink" href="#sorting-module-package" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Ссылка на этот заголовок">¶</a></h2>
+</div>
+<div class="section" id="module-sorting_module.sorting_module">
+<span id="sorting-module-sorting-module-module"></span><h2>sorting_module.sorting_module module<a class="headerlink" href="#module-sorting_module.sorting_module" title="Ссылка на этот заголовок">¶</a></h2>
+<p>В данном модуле храянятся функции с разными видами сортировки</p>
+<dl class="function">
+<dt id="sorting_module.sorting_module.bubble_sort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">bubble_sort</code><span class="sig-paren">(</span><em class="sig-param">lst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#bubble_sort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.bubble_sort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция сортировки пузырьком
+:param lst: list
+:return list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.counting_sort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">counting_sort</code><span class="sig-paren">(</span><em class="sig-param">lst</em>, <em class="sig-param">largest</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#counting_sort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.counting_sort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция сортировки подсчетом.
+:param lst: list
+:param largest: float
+:return list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.heap_sort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">heap_sort</code><span class="sig-paren">(</span><em class="sig-param">lst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#heap_sort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.heap_sort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Сама функция Пирамидальная сортировка(Heap Sort).
+:param lst: list
+:return list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.heapify">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">heapify</code><span class="sig-paren">(</span><em class="sig-param">lst</em>, <em class="sig-param">n</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#heapify"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.heapify" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция преоброзовывания в двоичную кучу, где lst список, i корневой индекс, n размер кучи
+:param lst: arrow
+:param i: int
+:param n: int</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.marge_sort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">marge_sort</code><span class="sig-paren">(</span><em class="sig-param">lst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#marge_sort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.marge_sort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Сортировка слиянием
+:param lst: list
+:return list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.quicksort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">quicksort</code><span class="sig-paren">(</span><em class="sig-param">lst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#quicksort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.quicksort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция быстрой сортировки
+:param lst: list
+:return list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorting_module.sorting_module.radix_sort">
+<code class="sig-prename descclassname">sorting_module.sorting_module.</code><code class="sig-name descname">radix_sort</code><span class="sig-paren">(</span><em class="sig-param">lst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sorting_module/sorting_module.html#radix_sort"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#sorting_module.sorting_module.radix_sort" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция поразрядной сортировка(Radix Sort)
+:param lst: list
+:return list</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-sorting_module">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sorting_module" title="Ссылка на этот заголовок">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Final project. Sorting</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">FinalProject</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sorting_module package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">FinalProject</a><ul>
+      <li>Previous: <a href="main.html" title="предыдущая глава">main module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Sirotkin Evgeniy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/sorting_module.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

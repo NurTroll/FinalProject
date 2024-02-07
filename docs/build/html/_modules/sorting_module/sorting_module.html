@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>sorting_module.sorting_module &#8212; документация Final project. Sorting 0.0.1</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Исходный код sorting_module.sorting_module</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;В данном модуле храянятся функции с разными видами сортировки&#39;&#39;&#39;</span>
+
+
+<div class="viewcode-block" id="bubble_sort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.bubble_sort">[документация]</a><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Функция сортировки пузырьком</span>
+<span class="sd">    :param lst: list</span>
+<span class="sd">    :return list</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+	<span class="n">last_elem_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+	<span class="k">for</span> <span class="n">passNo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">last_elem_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">passNo</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lst</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+				<span class="n">lst</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+	<span class="k">return</span> <span class="n">lst</span></div>
+
+
+<div class="viewcode-block" id="counting_sort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.counting_sort">[документация]</a><span class="k">def</span> <span class="nf">counting_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">largest</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Функция сортировки подсчетом.</span>
+<span class="sd">    :param lst: list</span>
+<span class="sd">    :param largest: float</span>
+<span class="sd">    :return list</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">largest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+		<span class="n">c</span><span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">largest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+		<span class="n">result</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span> <span class="o">=</span> <span class="n">x</span>
+		<span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+
+	<span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="heapify"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.heapify">[документация]</a><span class="k">def</span> <span class="nf">heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Функция преоброзовывания в двоичную кучу, где lst список, i корневой индекс, n размер кучи</span>
+<span class="sd">	:param lst: arrow</span>
+<span class="sd">	:param i: int</span>
+<span class="sd">	:param n: int</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="n">largest</span> <span class="o">=</span> <span class="n">i</span>
+	<span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="n">right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
+
+	<span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lst</span><span class="p">[</span><span class="n">left</span><span class="p">]:</span> <span class="c1">#проверка существования левого элемента который больше корня</span>
+		<span class="n">largest</span> <span class="o">=</span> <span class="n">left</span>
+	<span class="k">if</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span><span class="n">largest</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lst</span><span class="p">[</span><span class="n">right</span><span class="p">]:</span> <span class="c1">#аналогичная проверка для правого элемента</span>
+		<span class="n">largest</span> <span class="o">=</span> <span class="n">right</span>
+	<span class="k">if</span> <span class="n">largest</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+		<span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">largest</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">largest</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">#меняем корень если того требуется</span>
+		<span class="n">heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">largest</span><span class="p">)</span> <span class="c1">#применяем функцию к корневому элементу</span></div>
+
+
+<div class="viewcode-block" id="heap_sort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.heap_sort">[документация]</a><span class="k">def</span> <span class="nf">heap_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Сама функция Пирамидальная сортировка(Heap Sort).</span>
+<span class="sd">	:param lst: list</span>
+<span class="sd">	:return list</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">#меняем элементы местами</span>
+		<span class="n">heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="marge_sort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.marge_sort">[документация]</a><span class="k">def</span> <span class="nf">marge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Сортировка слиянием</span>
+<span class="sd">	:param lst: list</span>
+<span class="sd">	:return list</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1">#делим список пополам</span>
+		<span class="n">left</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[:</span><span class="n">mid</span><span class="p">]</span>
+		<span class="n">right</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">mid</span><span class="p">:]</span>
+		<span class="n">marge_sort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span><span class="c1"># применяем функцию к левой и правой частям</span>
+		<span class="n">marge_sort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+
+		<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="n">b</span><span class="p">]:</span>
+				<span class="n">lst</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">left</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+				<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">lst</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">right</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+				<span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>
+			<span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">):</span>
+			<span class="n">lst</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">left</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+			<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+			<span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+			<span class="n">lst</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">right</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+			<span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>
+			<span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="n">lst</span></div>
+
+
+<div class="viewcode-block" id="quicksort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.quicksort">[документация]</a><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Функция быстрой сортировки</span>
+<span class="sd">	:param lst: list</span>
+<span class="sd">	:return list</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="c1">#Если длина списка менее двух, то он является отсортированным</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">lst</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="c1">#Опорный элемент</span>
+		<span class="n">pivot</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">less</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">]</span> <span class="c1">#подсписок элементов меньше опорного</span>
+		<span class="n">greater</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">]</span> <span class="c1">#подсписок элементов больше опроного</span>
+		<span class="k">return</span> <span class="n">quicksort</span><span class="p">(</span><span class="n">less</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">quicksort</span><span class="p">(</span><span class="n">greater</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="radix_sort"><a class="viewcode-back" href="../../sorting_module.html#sorting_module.sorting_module.radix_sort">[документация]</a><span class="k">def</span> <span class="nf">radix_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;Функция поразрядной сортировка(Radix Sort)</span>
+<span class="sd">	:param lst: list</span>
+<span class="sd">	:return list</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="c1"># Находим длину самого длинного числа</span>
+	<span class="n">max_digit</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">])</span>
+	<span class="c1"># Система счисления</span>
+	<span class="n">radix</span> <span class="o">=</span> <span class="mi">10</span>
+	<span class="c1"># Создаём промежуточные списки</span>
+	<span class="n">lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radix</span><span class="p">)]</span>
+	<span class="c1"># Перебираем все разряды, начиная с нулевого</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_digit</span><span class="p">):</span>
+		<span class="c1"># перебираем все элементы в списке</span>
+		<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+			<span class="c1"># получаем цифру текущего разряда, для каждого числа</span>
+			<span class="n">digit</span> <span class="o">=</span> <span class="p">(</span><span class="n">elem</span> <span class="o">//</span> <span class="n">radix</span> <span class="o">**</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">radix</span>
+			<span class="c1"># добавляем число в промежуточный массив</span>
+			<span class="n">lists</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+		<span class="c1"># собираем в исходный список нулевые значения</span>
+		<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">lists</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">queue</span><span class="p">]</span>
+		<span class="c1"># очищаем промежуточный списко</span>
+		<span class="n">lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radix</span><span class="p">)]</span>
+	<span class="k">return</span> <span class="n">lst</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Final project. Sorting</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">FinalProject</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Код модуля</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Sirotkin Evgeniy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
